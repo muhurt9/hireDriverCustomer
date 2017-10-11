@@ -9,7 +9,7 @@
         android:id="@+id/LogoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Logout"
         tools:layout_editor_absoluteX="116dp"
         tools:layout_editor_absoluteY="231dp" />
 </LinearLayout>
