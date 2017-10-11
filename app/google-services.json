@@ -59,6 +59,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "73923582992-in68vdlcn0qf8vn8u6m7a4n1lco5lm27.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coder.hiredrivercustomer",
+            "certificate_hash": "23378322238237cd68315c08466aaf2816987dec"
+          }
+        },
+        {
           "client_id": "73923582992-2bfi9io7tb179u5sidc5u6oeq8t2qrik.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
