@@ -117,6 +117,9 @@ public class LoginCustomer extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         Toast.makeText(LoginCustomer.this, "Login Unsuccesful", Toast.LENGTH_LONG).show();
                     }
+                    else{
+                        startActivity(new Intent(LoginCustomer.this,Book.class));
+                    }
                 }
             });
         }
