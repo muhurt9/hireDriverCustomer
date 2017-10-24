@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -30,17 +31,19 @@ public class LoginCustomer extends AppCompatActivity {
     private static final int RC_SIGN_IN = 1;
     private static final String TAG = "Login";
     private EditText mEmailField, mPasswordField;
+    private Button signup;
     private Button mLoginButton;
     private SignInButton mGoogleButton;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private GoogleApiClient mGoogleApiClient;
-
+    user u;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_customer);
 
+        signup=(Button) findViewById(R.id.signup);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -104,7 +107,7 @@ public class LoginCustomer extends AppCompatActivity {
     private void CustSign() {
         String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
-
+        u.email=email;
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(LoginCustomer.this, "Fields are empty", Toast.LENGTH_LONG).show();
         } else {
@@ -113,6 +116,9 @@ public class LoginCustomer extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         Toast.makeText(LoginCustomer.this, "Login Unsuccesful", Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        startActivity(new Intent(LoginCustomer.this,Book.class));
                     }
                 }
             });
@@ -142,6 +148,10 @@ public class LoginCustomer extends AppCompatActivity {
                 // ...
             }
         }
+    }
+//signup <code></code>
+    public void signupMethod(View v){
+        startActivity(new Intent(LoginCustomer.this, signUpPage.class));
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
