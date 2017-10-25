@@ -115,7 +115,7 @@ String temp;
             final user u=new user();
             u.email=email.getText().toString();
             u.age=Integer.parseInt(age.getText().toString());
-            u.contact=(contact.getText().toString());
+            u.contact=(Long.parseLong(contact.getText().toString()));
             u.gender= (String) ((RadioButton)findViewById(gender.getCheckedRadioButtonId())).getText();
             u.name=name.getText().toString();
 

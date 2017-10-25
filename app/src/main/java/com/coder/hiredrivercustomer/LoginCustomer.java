@@ -87,34 +87,30 @@ public class LoginCustomer extends AppCompatActivity {
             }
         };
 
-        mLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CustSign();
-
-            }
-        });
 
 
     }
-
     @Override
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
 
-    private void CustSign() {
+    public void CustSign(View v) {
+        Log.d(TAG, "CustSign: called sign in method");
+
         String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
-        u.email=email;
+     //   u.email=email;
+
+
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(LoginCustomer.this, "Fields are empty", Toast.LENGTH_LONG).show();
         } else {
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
+                    if (!task.isSuccessful()) {
                         Toast.makeText(LoginCustomer.this, "Login Unsuccesful", Toast.LENGTH_LONG).show();
                     }
                     else{

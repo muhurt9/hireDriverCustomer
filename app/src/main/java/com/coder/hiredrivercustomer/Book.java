@@ -26,7 +26,7 @@ public class Book extends AppCompatActivity {
     private Calendar calendar;
     private TextView dateView;
     private int year, month, day;
-
+    private Date date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +53,12 @@ public class Book extends AppCompatActivity {
 
             }
         });
+        date=new Date();
+        SimpleDateFormat sd=new SimpleDateFormat("dd/MM/yyyy");
         dateView=(TextView)findViewById(R.id.fromDate);
-        dateView.setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+        dateView.setText(sd.format(date));
         dateView=(TextView)findViewById(R.id.toDate);
-        dateView.setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date((new Date()).getTime()+24*60*60*1000)));
-
+        dateView.setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(date.getTime()+24*60*60*1000)));
 
     }
 
@@ -66,27 +67,29 @@ public class Book extends AppCompatActivity {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
-    @SuppressWarnings("depreciation")
-    public void FindDrivers(){
-        
+    public void FindDrivers(View v){
+        //check validations and if everthing right then show list
+/*        if(){
+
+        }
+
+  */      startActivity(new Intent(Book.this,driverList.class));
     }
 
 
-    @SuppressWarnings("deprecation")
     public void setDate(View view) {
         dateView=(TextView) view;
         showDialog(999);
-        Toast.makeText(getApplicationContext(), "ca",
-                Toast.LENGTH_SHORT)
-                .show();
     }
 
+
     @Override
+
     protected Dialog onCreateDialog(int id) {
         // TODO Auto-generated method stub
         if (id == 999) {
             return new DatePickerDialog(this,
-                    myDateListener, year, month, day);
+                    myDateListener, 2017, 10,1);
         }
         return null;
     }
@@ -104,8 +107,8 @@ public class Book extends AppCompatActivity {
                 }
             };
 
-    private void showDate(int year, int month, int day) {
 
+    private void showDate(int year, int month, int day) {
         dateView.setText(new StringBuilder().append(day).append("/")
                 .append(month).append("/").append(year));
     }
