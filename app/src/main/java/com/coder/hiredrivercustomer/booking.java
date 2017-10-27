@@ -1,14 +1,15 @@
 package com.coder.hiredrivercustomer;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by spinykiller on 10/18/2017.
  */
 
-public class booking {
+public class booking implements Serializable{
     public String bookId,userId,driverId,place;
-    public int ratings,cost;
+    public double ratings,cost;
     public Date fDate,tDate;
     public booking(){
         bookId=userId=driverId=place="";

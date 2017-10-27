@@ -38,7 +38,7 @@ public class driverAdapter extends ArrayAdapter {
         TextView contact = (TextView) listItemView.findViewById(R.id.contact);
         contact.setText(currentUser.getContact().toString());
         RatingBar r=(RatingBar)listItemView.findViewById(R.id.ratingBar);
-       //change rating for user
+       //change rating for/ user
         r.setRating(new Float(3.5));
         return listItemView;
     }

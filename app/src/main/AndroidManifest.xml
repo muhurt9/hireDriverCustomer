@@ -20,7 +20,8 @@
         <activity android:name=".LoginCustomer" />
         <activity android:name=".Book" />
         <activity android:name=".signUpPage" />
-        <activity android:name=".driverList"></activity>
+        <activity android:name=".driverList" />
+        <activity android:name=".confirmedBook"></activity>
     </application>
 
 </manifest>

@@ -119,8 +119,8 @@ String temp;
             u.gender= (String) ((RadioButton)findViewById(gender.getCheckedRadioButtonId())).getText();
             u.name=name.getText().toString();
 
-            Toast toast=Toast.makeText(getApplicationContext(),u.email+" "+u.age+" "+u.contact+" "+u.gender+" "+u.name+" "+temp,Toast.LENGTH_LONG);
-            toast.show();
+         //   Toast toast=Toast.makeText(getApplicationContext(),u.email+" "+u.age+" "+u.contact+" "+u.gender+" "+u.name+" "+temp,Toast.LENGTH_LONG);
+            //toast.show();
             mAuth = FirebaseAuth.getInstance();
             mAuth.createUserWithEmailAndPassword(u.email, password.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

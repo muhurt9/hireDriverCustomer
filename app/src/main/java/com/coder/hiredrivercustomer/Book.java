@@ -10,11 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -27,13 +29,15 @@ public class Book extends AppCompatActivity {
     private TextView dateView;
     private int year, month, day;
     private Date date;
-
+    public java.util.Calendar c;
+    SimpleDateFormat sdf;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
-
+        sdf=new SimpleDateFormat("dd/MM/yyyy");
         mAuth = FirebaseAuth.getInstance();
+
 
         MLogout = (Button) findViewById(R.id.LogoutButton);
 
@@ -67,15 +71,34 @@ public class Book extends AppCompatActivity {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
-    public void FindDrivers(View v){
+    public void FindDrivers(View v) {
         //check validations and if everthing right then show list
-/*        if(){
+        EditText place = (EditText) findViewById(R.id.address);
+        TextView fdatetv=((TextView) findViewById(R.id.fromDate));
+        TextView tdatetv=((TextView) findViewById(R.id.toDate));
+        Date fdate =new Date (fdatetv.getText().toString());
+        Date tdate =new Date (tdatetv.getText().toString());
 
+        if (place.getText().toString().length()<=0) {
+            place.setError("invalid address");
+            place.requestFocus();
         }
-
-  */      startActivity(new Intent(Book.this,driverList.class));
+        else if(tdate.before(fdate)){
+            fdatetv.setError("invalid date Entered");
+            fdatetv.requestFocus();
+        }
+        else {
+            booking bookingInfo = new booking();
+            bookingInfo.place = (place).getText().toString();
+            try {
+                bookingInfo.fDate =sdf.parse((fdatetv).getText().toString()) ;//new Date((fdatetv).getText().toString());
+                bookingInfo.tDate = sdf.parse((tdatetv).getText().toString());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            startActivity(new Intent(Book.this, driverList.class).putExtra("bookingInfo", bookingInfo));
+        }
     }
-
 
     public void setDate(View view) {
         dateView=(TextView) view;
@@ -88,8 +111,9 @@ public class Book extends AppCompatActivity {
     protected Dialog onCreateDialog(int id) {
         // TODO Auto-generated method stub
         if (id == 999) {
+            c= java.util.Calendar.getInstance();
             return new DatePickerDialog(this,
-                    myDateListener, 2017, 10,1);
+                    myDateListener,c.get(c.YEAR), c.get(c.MONTH),c.get(c.DAY_OF_MONTH));
         }
         return null;
     }
