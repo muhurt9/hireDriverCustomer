@@ -139,9 +139,9 @@ public class LoginCustomer extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
+
             } else {
-                // Google Sign In failed, update UI appropriately
-                // ...
+                Log.d(TAG, "signInWithCredential:Failed");
             }
         }
     }
@@ -151,6 +151,9 @@ public class LoginCustomer extends AppCompatActivity {
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
+        Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
+        // [START_EXCLUDE silent]
+        showProgressDialog();
         AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -160,6 +163,7 @@ public class LoginCustomer extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            //updateUI(user);
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -173,4 +177,9 @@ public class LoginCustomer extends AppCompatActivity {
                     }
                 });
     }
+
+    private void showProgressDialog() {
+    }
+
+
 }
