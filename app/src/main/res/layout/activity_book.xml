@@ -99,4 +99,11 @@
         android:onClick="FindDrivers"
         android:text="Find Driver" />
 
+    <Button
+        android:id="@+id/previousBooking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="prevbooking"
+        android:text="Previous Booking" />
+
 </LinearLayout>

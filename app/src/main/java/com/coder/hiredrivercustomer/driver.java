@@ -6,9 +6,11 @@ package com.coder.hiredrivercustomer;
 
 public class driver {
     public String name,id,gender,email,aadhar;
-    public int age,contact;
+    public long age,contact;
+    boolean booked;
     public driver(){
         name=id=gender=email=aadhar="";
         age=contact=0;
+        booked=false;
     }
 }

@@ -71,6 +71,9 @@ public class Book extends AppCompatActivity {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
+    public void prevbooking(View v){
+        startActivity(new Intent(Book.this,previousBooking.class));
+    }
     public void FindDrivers(View v) {
         //check validations and if everthing right then show list
         EditText place = (EditText) findViewById(R.id.address);
