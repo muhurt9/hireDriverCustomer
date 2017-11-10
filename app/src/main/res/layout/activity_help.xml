@@ -8,6 +8,7 @@
     android:scrollbarSize="?android:attr/scrollbarSize"
     android:scrollbarStyle="insideInset"
     tools:context="com.coder.hiredrivercustomer.help">
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -28,24 +29,27 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="335dp"
-        android:layout_height="107dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:selectAllOnFocus="false"
-        android:singleLine="false"
-        android:text="Help"
-        android:textAlignment="center"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/multiAutoCompleteTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:maxLength="10"
-        tools:text="Help" />
+
+        <EditText
+            android:layout_width="335dp"
+            android:layout_height="107dp"
+            android:background="@drawable/common_google_signin_btn_icon_dark"
+            android:backgroundTint="@color/colorPrimary"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"
+            android:text="Help"
+            android:textAlignment="center"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toTopOf="@+id/multiAutoCompleteTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:maxLength="10"
+            tools:text="Help" />
 
         <MultiAutoCompleteTextView
             android:id="@+id/multiAutoCompleteTextView"

@@ -22,7 +22,8 @@
         <activity android:name=".signUpPage" />
         <activity android:name=".driverList" />
         <activity android:name=".confirmedBook" />
-        <activity android:name=".help"></activity>
+        <activity android:name=".help" />
+        <activity android:name=".faqs"></activity>
     </application>
 
 </manifest>
