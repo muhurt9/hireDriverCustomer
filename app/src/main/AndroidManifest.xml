@@ -24,6 +24,7 @@
         <activity android:name=".confirmedBook" />
         <activity android:name=".previousBooking" />
         <activity android:name=".bookingInfo"></activity>
+        <activity android:name=".help" />
+        <activity android:name=".faqs"></activity>
     </application>
-
 </manifest>
